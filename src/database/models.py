@@ -61,3 +61,44 @@ class PacientePrediccionPrioridad(Base):
 
     def to_dict(self):
         return {col.name: getattr(self, col.name) for col in self.__table__.columns}
+
+
+class InsumoInventario(Base):
+    __tablename__ = "insumo_inventario"
+
+    item_id = Column(String(20), primary_key=True)
+    item_nombre = Column(String(100), nullable=False)
+    categoria_item = Column(String(50), nullable=False)
+    tipo_stock = Column(String(50), nullable=False)
+    unidad_medida = Column(String(20), nullable=False)
+    stock_actual = Column(Float, nullable=False, default=0.0)
+    stock_minimo = Column(Float, nullable=False, default=0.0)
+    consumo_diario = Column(Float, nullable=False, default=0.0)
+    consumo_lag_1 = Column(Float, nullable=False, default=0.0)
+    consumo_lag_7 = Column(Float, nullable=False, default=0.0)
+    consumo_promedio_7d = Column(Float, nullable=False, default=0.0)
+    consumo_promedio_14d = Column(Float, nullable=False, default=0.0)
+    variabilidad_consumo = Column(Float, nullable=False, default=0.0)
+
+    def to_dict(self):
+        return {col.name: getattr(self, col.name) for col in self.__table__.columns}
+
+
+class InsumoPrediccion(Base):
+    __tablename__ = "insumo_predicciones"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    item_id = Column(String(20), nullable=False)
+    item_nombre = Column(String(100), nullable=False)
+    fecha_prediccion = Column(DateTime, nullable=False)
+    stock_actual = Column(Float, nullable=False)
+    demanda_proyectada_7d = Column(Float, nullable=False)
+    demanda_proyectada_14d = Column(Float, nullable=False)
+    dias_cobertura = Column(Float, nullable=False)
+    stock_critico = Column(Integer, nullable=False) # 1 si stock_actual < demanda_proyectada_7d o 14d, else 0
+    stock_critico_7d = Column(Integer, nullable=False)
+    stock_critico_14d = Column(Integer, nullable=False)
+
+    def to_dict(self):
+        return {col.name: getattr(self, col.name) for col in self.__table__.columns}
+
