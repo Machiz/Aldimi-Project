@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 pandas==3.0.3
 numpy==2.5.0
 plotly==6.8.0
@@ -9,7 +8,6 @@ scikit-learn>=1.3.0
 xgboost>=1.7.0
 matplotlib>=3.8.0
 seaborn>=0.13.0
-=======
 altair==6.2.2
 anyio==4.14.1
 attrs==26.1.0
@@ -71,4 +69,3 @@ watchdog==6.0.0
 websockets==16.0
 xgboost==3.3.0
 yarg==0.1.10
->>>>>>> 8a0557f (feat:add readme and requirements.txt)
