@@ -1,26 +1,59 @@
-# Python caches
+# Python caches and compiled files
 __pycache__/
 *.py[cod]
 *$py.class
+*.so
 .pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
 
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
-
-# Environments
+# Environments and Virtual Envs
 .venv/
 venv/
 ENV/
+env/
+Active/
+*.bak
+*.conf
 
 # OS files
 .DS_Store
 Thumbs.db
+ehthumbs.db
 
-# IDE files
+# IDE settings
 .vscode/
 .idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
 
-# SQLite temporary files (keep the main .db, ignore journals and locks)
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# SQLite temporary files
 *.db-journal
 *.db-shm
 *.db-wal
+
+# Local environment variables and secrets
+.env
+.env.local
+.env.*.local
+
+# Streamlit configurations and secrets
+.streamlit/config.toml
+.streamlit/secrets.toml
+
+# Machine Learning Artifacts (Trained models and local test outputs)
+*.pkl
+*.joblib
+*.pb
+*.h5
+*.onnx
+*.weights
+tensorboard/
+runs/
